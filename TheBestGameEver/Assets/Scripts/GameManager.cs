@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Menu;
+    public GameObject win;
+    public GameObject fail;
     private GameObject[] coins;
     void Start()
     {
@@ -17,6 +18,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         Menu.SetActive(true);
+        fail.SetActive(true);
+    }
+    public void Win()
+    {
+        Time.timeScale = 0;
+        Menu.SetActive(true);
+        win.SetActive(true);
     }
     void FindRemainCoins()
     {
@@ -24,7 +32,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(coins.Length);
         if (coins.Length - 1 == 0)
         {
-            GameOver();
+            Win();
         }
     }
 
